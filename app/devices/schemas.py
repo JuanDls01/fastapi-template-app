@@ -26,7 +26,7 @@ class DeviceModelBase(BaseModel):
     technical_name: str
 
 
-class DeviceModelCreate(DeviceBase):
+class DeviceModelCreate(DeviceModelBase):
     no_readeable_attribute: str
 
 
