@@ -5,6 +5,7 @@ from sqlalchemy import (
     Integer,
     String,
     UniqueConstraint,
+    Table,
 )
 from sqlalchemy.orm import relationship
 
@@ -22,6 +23,15 @@ class DeviceModel(Timestamp, Base):
     devices = relationship(
         "Device", back_populates="device_model", uselist=False
     )
+
+
+# device_model = Table(
+#     "device_models",
+#     Base.metadata,
+#     Column("id", Integer, primary_key=True, index=True, autoincrement=True),
+#     Column("technical_name", String, unique=True, index=True),
+#     Column("no_redeable_attribute, String"),
+# )
 
 
 class Device(Timestamp, Base):

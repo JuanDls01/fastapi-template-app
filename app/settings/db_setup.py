@@ -25,3 +25,16 @@ async def async_get_db():
     async with AsyncSessionLocal() as db:
         yield db
         await db.commit()
+
+
+from databases import Database
+
+database = Database(db_connection_url)
+
+
+async def get_db_async_connection():
+    await database.connect()
+    try:
+        yield database
+    finally:
+        await database.disconnect()

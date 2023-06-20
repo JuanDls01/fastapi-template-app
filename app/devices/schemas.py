@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 
 class DeviceBase(BaseModel):
+    device_model_id: int
     serial_number: str
 
 
@@ -15,7 +16,6 @@ class Device(DeviceBase):
     """
 
     id: int
-    device_model_id: int
     is_active: bool
 
     class Config:
